@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:movie_app2/models/movie.dart';
 
@@ -10,12 +12,17 @@ class MovieCard extends StatefulWidget {
 
 // ignore: camel_case_types
 class _movieCardState extends State<MovieCard> {
+  int randomNum = Random().nextInt(2);
+  int get randomNumGetter => Random().nextInt(2);
+
   @override
   Widget build(BuildContext context) {
     final snackBar = SnackBar(
       content: widget.selectedMovie.isFavorite
           ? const Text('You were the chosen one :(.')
           : const Text('Spread the Love <3.'),
+      duration: const Duration(milliseconds: 750),
+      behavior: SnackBarBehavior.floating,
       action: SnackBarAction(
         label: 'Undo',
         onPressed: () {},

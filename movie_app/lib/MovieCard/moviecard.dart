@@ -54,6 +54,17 @@ class _MovieCardState extends State<MovieCard> {
   }
 
   Widget buildMovieCard(BuildContext context, int index) {
+    final snackBar = SnackBar(
+      content: movieList[index].isFavorite
+          ? const Text('You were the chosen one :(.')
+          : const Text('Spread the Love <3.'),
+      duration: const Duration(milliseconds: 750),
+      behavior: SnackBarBehavior.floating,
+      action: SnackBarAction(
+        label: 'Undo',
+        onPressed: () {},
+      ),
+    );
     return Card(
       color: const Color.fromARGB(255, 203, 179, 247),
       child: SizedBox(
@@ -105,11 +116,8 @@ class _MovieCardState extends State<MovieCard> {
                 onPressed: () {
                   setState(() {
                     movieList[index].isFavorite = !movieList[index].isFavorite;
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   });
-                  SnackBar(
-                    content: const Text('Spread the Love <3'),
-                    action: SnackBarAction(label: 'Undo', onPressed: () {}),
-                  );
                 },
               ),
             ],
