@@ -12,6 +12,15 @@ class MovieCard extends StatefulWidget {
 class _movieCardState extends State<MovieCard> {
   @override
   Widget build(BuildContext context) {
+    final snackBar = SnackBar(
+      content: widget.selectedMovie.isFavorite
+          ? const Text('You were the chosen one :(.')
+          : const Text('Spread the Love <3.'),
+      action: SnackBarAction(
+        label: 'Undo',
+        onPressed: () {},
+      ),
+    );
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -31,6 +40,7 @@ class _movieCardState extends State<MovieCard> {
                 setState(() {
                   widget.selectedMovie.isFavorite =
                       !widget.selectedMovie.isFavorite;
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 });
               },
               icon: Icon(
