@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/MovieCard/movie.dart';
+import 'package:movie_app/MovieCard/moviebotnavbar.dart';
 
 class MovieCard extends StatefulWidget {
   const MovieCard({super.key});
