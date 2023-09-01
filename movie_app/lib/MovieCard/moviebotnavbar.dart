@@ -36,7 +36,7 @@ class _navBarState extends State<NavBar> {
               label: "Movies"),
         ],
       ),
-      body: const <Widget>[MovieIntro(), MovieCard()][currentPageIndex],
+      body: <Widget>[MovieIntro(), const MovieCard()][currentPageIndex],
     );
   }
 }

@@ -19,13 +19,25 @@ class MovieIntro extends StatelessWidget {
         children: [
           Positioned.fill(
             child: Image.asset(
-              "assets/images/CinemaView.jpg", // Replace with your image path
+              'assets/images/CinemaView.jpg',
               fit: BoxFit.cover,
-              color: const Color.fromRGBO(255, 255, 255,
-                  0.7), // This adds transparency to the image. Adjust the last value (0.7) to your needs.
-              colorBlendMode: BlendMode.modulate,
             ),
           ),
+          const Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color.fromRGBO(255, 255, 255, 0.3),
+                    Color.fromRGBO(255, 255, 255, 0.7),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const Center(child: Text('This is the movie introduction page!')),
         ],
       ),
     );
